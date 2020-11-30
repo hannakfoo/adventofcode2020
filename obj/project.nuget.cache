@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "rEYDMQujxNX4rtRbivkHqE6P+HqcJDoUYZUuSrm+kFa4Ff8upylaY0VpLSDr7SthC5xZshv/IZjse0Em6znKhw==",
+  "success": true,
+  "projectFilePath": "/home/hannakfoo/adventofcode/adventofcode/adventofcode.csproj",
+  "expectedPackageFiles": [
+    "/home/hannakfoo/.nuget/packages/mcmaster.extensions.commandlineutils/3.0.0/mcmaster.extensions.commandlineutils.3.0.0.nupkg.sha512",
+    "/home/hannakfoo/.nuget/packages/system.componentmodel.annotations/4.7.0/system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
