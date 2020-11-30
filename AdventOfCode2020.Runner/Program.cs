@@ -12,14 +12,8 @@ namespace adventofcode
                 Name = "aoc-2020",
                 Description = "=>> Advent of Code 2020 Runner <<="
             };
-            app.HelpOption(inherited: true);
 
-            app.OnExecute(() =>
-            {
-                Console.WriteLine("Geef een parameter op!");
-                app.ShowHelp();
-                return 1;
-            });
+            app.VersionOption("-V --version", "1", "1.0");
 
             return app.Execute(args);
         }
