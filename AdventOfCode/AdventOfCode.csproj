@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.12.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AdventOfCode2020.Runner\AdventOfCode2020.Runner.csproj" />
   </ItemGroup>
 
