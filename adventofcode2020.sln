@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{10
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexTester", "RegexTester\RegexTester.csproj", "{E39E36D7-3E3C-457B-929D-60E8909D6150}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,18 @@ Global
 		{A6C79900-4130-4871-B504-9053B394B60A}.Release|x64.Build.0 = Release|Any CPU
 		{A6C79900-4130-4871-B504-9053B394B60A}.Release|x86.ActiveCfg = Release|Any CPU
 		{A6C79900-4130-4871-B504-9053B394B60A}.Release|x86.Build.0 = Release|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Debug|x64.Build.0 = Debug|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Debug|x86.Build.0 = Debug|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Release|x64.ActiveCfg = Release|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Release|x64.Build.0 = Release|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Release|x86.ActiveCfg = Release|Any CPU
+		{E39E36D7-3E3C-457B-929D-60E8909D6150}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
