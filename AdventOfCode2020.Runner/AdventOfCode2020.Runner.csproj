@@ -38,10 +38,4 @@
     <Folder Include="tests\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="C:\Users\henkj\Desktop\day3_input.txt" Link="day3_input.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

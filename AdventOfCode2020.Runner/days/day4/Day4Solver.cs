@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using adventofcode2020.contracts;
-using McMaster.Extensions.CommandLineUtils;
 
 namespace AdventOfCode2020.Runner.days.day4
 {
-    public class Day5Solver : ISolver
+    public class Day4Solver : ISolver
     {
         private List<string> fields = new List<string>
         {
@@ -51,7 +46,6 @@ namespace AdventOfCode2020.Runner.days.day4
 
             if (fields.Length == 7)
             {
-
                 var fieldss = fields.SelectMany(f => f.Split(":")).ToList();
                 return !fieldss.Contains("cid");
             }
@@ -75,23 +69,35 @@ namespace AdventOfCode2020.Runner.days.day4
                 .Select(s => s.Replace("\r\n", " "))
                 /*.Count()*/;
 
-            Console.WriteLine(passports);
-
+            var finalResult = new List<bool>();
+            
             foreach (var passport in passports)
             {
+                int validTotal = 0;
 
                 if (IsCompletePassport(passport))
                 {
                     var passportFields = passport.Split(' ');
-                    
+
+                    List<bool> validationPassport = new List<bool>();
+
                     foreach (var passportField in passportFields)
                     {
-                        Console.WriteLine(passportField);
-                        var result = ValidateField(passportField);
+
+                        validationPassport.Add(ValidateField(passportField));
+
+                        if (!ValidateField(passportField))
+                        {
+                            Console.WriteLine($"Validatie van {passportField}:{ValidateField(passportField)}");
+                        }
+                    }
+                    if (!validationPassport.Contains(false))
+                    {
+                        finalResult.Add(true);
                     }
                 }
             }
-
+            Console.WriteLine($"{finalResult.Count()}");
             Console.WriteLine("Solved part 2 of day 4");
             Console.Read();
         }
@@ -106,7 +112,6 @@ namespace AdventOfCode2020.Runner.days.day4
 
             if (fields.Length == 7)
             {
-
                 var fieldss = fields.SelectMany(f => f.Split(":")).ToList();
                 return !fieldss.Contains("cid");
             }
@@ -123,38 +128,36 @@ namespace AdventOfCode2020.Runner.days.day4
         {
             var key = passportField.Split(':')[0];
             Regex regex = null;
+
             switch (key)
             {
                 case "byr":
-                    //1920 - 2002
-                    regex = new Regex("^[1|2][9|0][234567890][012]$");
+                    regex = new Regex(@"19[23456789]\d|200[012]");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "iyr":
-                    //2010 - 2020
-                    regex = new Regex("^[2][0][1|2][0]$");
+                    regex = new Regex(@"20[1]\d|2020");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "eyr":
-                    //2020 -2030
-                    regex = new Regex("^[2][0][2|3][0]$");
+                    regex = new Regex(@"20[2]\d|2030");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "hgt":
-                    //Height) -a number followed by either cm or in:
-                    //If cm, the number must be at least 150 and at most 193.
-                    //If in, the number must be at least 59 and at most 76.
-                    return true;
+                    regex = new Regex(@"1[5678]\dcm|19[0123]cm|5[9]in|6\din|7[0123456]in");
+                    return regex.Match(passportField.Split(':')[1]).Success;
                 case "hcl":
-                    //a # followed by exactly six characters 0-9 or a-f.
+                    regex = new Regex(@"#[a-f0-9]{6,}");
+                    return regex.Match(passportField.Split(':')[1]).Success;
                     return true;
                 case "ecl":
-                    //exactly one of: amb blu brn gry grn hzl oth.
-                    return true;
+                    regex = new Regex(@"amb|blu|brn|gry|grn|hzl|oth");
+                    return regex.Match(passportField.Split(':')[1]).Success;
                 case "pid":
-                    //a nine-digit number, including leading zeroes.
+                    regex = new Regex(@"[0-9]{6,}");
+                    return regex.Match(passportField.Split(':')[1]).Success;
+                case "cid":
                     return true;
                 default:
                     return false;
             }
-
         }
     }
 }

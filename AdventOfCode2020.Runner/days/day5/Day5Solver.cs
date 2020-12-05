@@ -56,10 +56,10 @@ namespace AdventOfCode2020.Runner.days.day5
 
             var currentRange = 127;
 
-            instructions.ForEach(instr =>
-            {
-                currentRange = GetRowRange(currentRange, instr);
-            });
+            //instructions.ForEach(instr =>
+            //{
+            //    currentRange = GetRowRange(currentRange, instr);
+            //});
 
 
             // If F  => 0 - 63
@@ -73,20 +73,20 @@ namespace AdventOfCode2020.Runner.days.day5
             return 0;
         }
 
-        private Range GetRowRange(Range currentRange, char instruction)
-        {
-            var result = currentRange.End;
+        //private Range GetRowRange(Range currentRange, char instruction)
+        //{
+        //    var result = currentRange.End;
 
-            switch (instruction)
-            {
-                case 'F':
-                    return Range.StartAt(result / 2);
-                case 'B':
-                    return Range.EndAt(result/ 2);
-                default:
-                    return new Range();
-            }
-        }
+        //    switch (instruction)
+        //    {
+        //        case 'F':
+        //            return Range.StartAt(result / 2);
+        //        case 'B':
+        //            return Range.EndAt(result/ 2);
+        //        default:
+        //            return new Range();
+        //    }
+        //}
 
         public void ExecutePart2()
         {
