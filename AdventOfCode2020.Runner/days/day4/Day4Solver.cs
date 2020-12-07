@@ -132,16 +132,16 @@ namespace AdventOfCode2020.Runner.days.day4
             switch (key)
             {
                 case "byr":
-                    regex = new Regex(@"19[23456789]\d|200[012]");
+                    regex = new Regex(@"19[2-9]\d|200[0-2]");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "iyr":
-                    regex = new Regex(@"20[1]\d|2020");
+                    regex = new Regex(@"201\d|2020");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "eyr":
-                    regex = new Regex(@"20[2]\d|2030");
+                    regex = new Regex(@"202\d|2030");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "hgt":
-                    regex = new Regex(@"1[5678]\dcm|19[0123]cm|5[9]in|6\din|7[0123456]in");
+                    regex = new Regex(@"1[5-8]\dcm|19[0-3]cm|59in|6\din|7[0-6]in");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "hcl":
                     regex = new Regex(@"#[a-f0-9]{6,}");
@@ -151,7 +151,7 @@ namespace AdventOfCode2020.Runner.days.day4
                     regex = new Regex(@"amb|blu|brn|gry|grn|hzl|oth");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "pid":
-                    regex = new Regex(@"[0-9]{6,}");
+                    regex = new Regex(@"\d{9}");
                     return regex.Match(passportField.Split(':')[1]).Success;
                 case "cid":
                     return true;
