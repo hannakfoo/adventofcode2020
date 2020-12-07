@@ -20,7 +20,6 @@ namespace AdventOfCode2020.Runner.days.day7
                .ToList();
 
             var input = "shiny gold bag";
-            //shiny gold bag
             var bagsThatCanContainShinyGoldBag = new List<string>();
 
             luggageRules.ForEach(rule =>
@@ -30,9 +29,6 @@ namespace AdventOfCode2020.Runner.days.day7
                 .Replace("contain", ",")
                 .Split(",")
                 .ToList();
-
-               
-
 
                 extractedRules.ForEach(er =>
                 {
@@ -47,15 +43,10 @@ namespace AdventOfCode2020.Runner.days.day7
                     }
                 });
 
-               
-
-
-                // todo each rule we have to extract the specific rule:
-                // contain replace with , and than split on ,
             });
             bagsThatCanContainShinyGoldBag.ForEach(er =>
             {
-                Console.WriteLine(er);
+                
             });
 
             Console.ReadKey();
