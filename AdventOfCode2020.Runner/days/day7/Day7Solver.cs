@@ -11,45 +11,51 @@ namespace AdventOfCode2020.Runner.days.day7
 {
     public class Day7Solver : ISolver
     {
+        private const string input = "shiny gold bag";
         public void ExecutePart1()
         {
             var luggageRules = File
-               .ReadAllText(Directory.GetCurrentDirectory() + @"\days\day7\testinput.txt")
+               .ReadAllText(Directory.GetCurrentDirectory() + @"\days\day7\input.txt")
                .Replace("\r\n", "$$")
                .Split("$$")
                .ToList();
 
-            var input = "shiny gold bag";
+       
             var bagsThatCanContainShinyGoldBag = new List<string>();
+
+            int i = 1;
+             List<List<string>> rulesDictionary = new List<List<string>>();
 
             luggageRules.ForEach(rule =>
             {
-                //Console.WriteLine(rule);
                 var extractedRules = rule
                 .Replace("contain", ",")
                 .Split(",")
                 .ToList();
 
-                extractedRules.ForEach(er =>
-                {
-                    er = Regex.Replace(er, "[0-9]{1}", "").Trim();
-                    var inputRule = new Regex(input);
-                    if(inputRule.Match(er).Success)
-                    {
-                        if (!bagsThatCanContainShinyGoldBag.Contains(extractedRules[0]))
-                        {
-                            bagsThatCanContainShinyGoldBag.Add(extractedRules[0]);
-                        }
-                    }
-                });
-
-            });
-            bagsThatCanContainShinyGoldBag.ForEach(er =>
-            {
+                var cleanupRules = CleanupRules(extractedRules);
+                rulesDictionary.Add(cleanupRules);
                 
+                i++;
             });
+
+            Console.WriteLine($"Lugage rules >> {luggageRules.Count}");
 
             Console.ReadKey();
+        }
+
+        private List<string> CleanupRules(List<string> extractedRules)
+        {
+            string cleanUpRule = string.Empty;
+            List<string> result = new List<string>();
+
+            foreach (var extractedRule in extractedRules)
+            {
+                cleanUpRule = Regex.Replace(extractedRule, "[0-9]{1}", "").Trim();
+                result.Add(cleanUpRule);
+            }
+
+            return result;
         }
 
         public void ExecutePart2()
